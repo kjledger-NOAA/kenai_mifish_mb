@@ -22,11 +22,14 @@ rename <- dplyr::rename
 ```
 
 ## load output from taxonkit 
-- this is the fasta seqs from the 20240806 run on dadasnake (i.e. duplicate sbs2022 libraries separated), and blastn using a ncbi nt database accessed on 2024-07-18 with 98% seq identity and 98% query coverage   
+- this is the fasta seqs from the 20241027 run on dadasnake, and blastn using a ncbi nt database accessed on 2024-07-18 with 98% seq identity and 98% query coverage   
 ```{r load-output-from-taxonkit}
 taxonomy <-read.delim("/home/kimberly.ledger/kenai_mifish_mb/kenai_20231027/blastn_taxlineage.txt", header = FALSE, na.strings=c(""," ","NA"))
 
 head(taxonomy)
+
+TEMP <- taxonomy %>%
+  filter(V1 == "ASV_0050")
 ```
 
 
